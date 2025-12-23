@@ -1,0 +1,160 @@
+/* Variables simuladas con :root */
+:root {
+  --primary-color: #000000;
+  --dark-color: #121212;
+  --light-color: #ffffff;
+  --rounded-full: 999px;
+  --fun-transition: all 0.4s ease;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Bangers', cursive;
+  text-align: center;
+  background-color: rgb(138, 136, 136);
+  transition: var(--fun-transition);
+}
+
+/* todo el header */
+.main-header {
+  background-image: url("https://wallpapercave.com/wp/fLiD6mx.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: rgb(36, 7, 7);
+  border: 2px solid #5c0c0c;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+
+section, nav {
+  margin: 1rem auto;
+}
+
+/* Inputs */
+input, select, button {
+  padding: 0.6rem 1rem;
+  border-radius: var(--rounded-full);
+  border: 2px solid #a50c0c;
+  margin: 0.5rem;
+  background-color: #641414;
+}
+
+/* Cards */
+article {
+  background-color: rgb(92, 15, 15);
+  border-radius: var(--rounded-full);
+  border: 2px solid #d80d0d;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 300px;
+  cursor: pointer;
+  transition: var(--fun-transition);
+}
+
+article:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* Imagen del héroe */
+article img {
+  width: 100%;
+  border-radius: var(--rounded-full);
+}
+
+/* Paginado */
+nav button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Modo oscuro */
+body.dark {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+body.dark article {
+  background-color: #1f1f1f;
+}
+
+#heroesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* card modo oscuro */
+.hero-card {
+  cursor: pointer;
+  padding: 1rem;
+  border: 3px solid #ff0b0b;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.hero-card img {
+  max-width: 100%;
+}
+
+#heroDetails {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(94, 29, 29, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.hero-detail {
+  background: #531616;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 300px;
+  
+}
+
+/* Oculta el modal con hidden */
+#heroDetails[hidden] {
+  display: none;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  #heroesList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
